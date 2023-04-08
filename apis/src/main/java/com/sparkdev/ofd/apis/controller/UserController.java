@@ -7,6 +7,7 @@ import com.sparkdev.ofd.apis.service.UserOperationsService;
 import com.sparkdev.ofd.apis.util.DtoToEntityMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +18,13 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1")
-public class UserController {
+public class UserController extends GlobalExceptionHandler{
 
     @Autowired
     private UserOperationsService userOperationsService;
 
     @PostMapping("/user")
-    public ResponseEntity<Object> createUser(@RequestBody UserDTO userDTO){
+    public ResponseEntity<Object> createUser(@RequestBody UserDTO userDTO) {
         Map<String, Object> response = new HashMap<>();
         log.info(userDTO.toString());
         UserEntity userEntity = DtoToEntityMapper.getUserEntityFromUserDto(userDTO);
@@ -32,17 +33,19 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public ResponseEntity<List<UserEntity>> fetchAllUsers(){
+    public ResponseEntity<List<UserEntity>> fetchAllUsers() {
         List<UserEntity> userEntities = userOperationsService.fetchAllUsers();
         return ResponseEntity.ok().body(userEntities);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, Boolean>> login(@RequestBody LoginDTO loginDTO){
+    public ResponseEntity<Map<String, Boolean>> login(@RequestBody LoginDTO loginDTO) {
         boolean response = userOperationsService.login(loginDTO);
         Map<String, Boolean> loginResponse = new HashMap<>();
         loginResponse.put("login", response);
         return ResponseEntity.ok().body(loginResponse);
     }
+
+
 
 }

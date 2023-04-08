@@ -3,12 +3,10 @@ package com.sparkdev.ofd.apis.dto;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@AllArgsConstructor
 public class UserDTO {
     private String userName;
     private String email;
