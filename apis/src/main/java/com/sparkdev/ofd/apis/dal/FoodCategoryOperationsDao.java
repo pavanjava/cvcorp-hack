@@ -7,4 +7,6 @@ import java.util.List;
 public interface FoodCategoryOperationsDao {
     FoodCategoryEntity saveCategory(FoodCategoryEntity foodCategoryEntity);
     List<FoodCategoryEntity> fetchAllCategories();
+
+
 }

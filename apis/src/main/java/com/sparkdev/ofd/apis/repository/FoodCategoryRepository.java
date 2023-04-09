@@ -1,7 +1,7 @@
 package com.sparkdev.ofd.apis.repository;
 
 import com.sparkdev.ofd.apis.entities.FoodCategoryEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FoodCategoryRepository extends CrudRepository<FoodCategoryEntity, Integer> {
+public interface FoodCategoryRepository extends JpaRepository<FoodCategoryEntity, Integer> {
 }

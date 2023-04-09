@@ -45,7 +45,4 @@ public class UserController extends GlobalExceptionHandler{
         loginResponse.put("login", response);
         return ResponseEntity.ok().body(loginResponse);
     }
-
-
-
 }
