@@ -25,4 +25,9 @@ public class FoodCategoryOperationsDaoImpl implements FoodCategoryOperationsDao 
         foodCategoryRepository.findAll().iterator().forEachRemaining(foodCategoryEntityList::add);
         return foodCategoryEntityList;
     }
+
+    @Override
+    public List<FoodCategoryEntity> saveAllCategories(List<FoodCategoryEntity> foodCategoryEntities) {
+        return foodCategoryRepository.saveAll(foodCategoryEntities);
+    }
 }

@@ -8,5 +8,5 @@ public interface FoodCategoryOperationsDao {
     FoodCategoryEntity saveCategory(FoodCategoryEntity foodCategoryEntity);
     List<FoodCategoryEntity> fetchAllCategories();
 
-
+    List<FoodCategoryEntity> saveAllCategories(List<FoodCategoryEntity> foodCategoryEntities);
 }

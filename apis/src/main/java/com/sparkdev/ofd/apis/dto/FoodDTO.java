@@ -7,10 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class FoodItemsDTO {
+public class FoodDTO {
     private String foodName;
     private String description;
     private float price;
-    private int categoryId;
-    private int restaurantId;
+    private FoodCategoryDTO foodCategoryDTO;
+    private RestaurantDTO restaurantDTO;
 }

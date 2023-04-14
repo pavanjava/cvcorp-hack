@@ -5,7 +5,6 @@ import com.sparkdev.ofd.apis.entities.FoodCategoryEntity;
 import com.sparkdev.ofd.apis.service.FoodCategoryOperationsService;
 import com.sparkdev.ofd.apis.util.DtoToEntityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +21,15 @@ public class FoodCategoryController extends GlobalExceptionHandler{
     public ResponseEntity<FoodCategoryEntity> saveFoodCategory(@RequestBody FoodCategoryDTO foodCategoryDTO) {
 
         FoodCategoryEntity foodCategoryEntity = foodCategoryOperationsService.saveCategory(
+                DtoToEntityMapper.getFoodCategoryEntityFromFoodCategoryDto(foodCategoryDTO));
+
+        return ResponseEntity.ok().body(foodCategoryEntity);
+    }
+
+    @PostMapping("/food-categories")
+    public ResponseEntity<List<FoodCategoryEntity>> saveFoodCategory(@RequestBody List<FoodCategoryDTO> foodCategoryDTO) {
+
+        List<FoodCategoryEntity> foodCategoryEntity = foodCategoryOperationsService.saveAllCategories(
                 DtoToEntityMapper.getFoodCategoryEntityFromFoodCategoryDto(foodCategoryDTO));
 
         return ResponseEntity.ok().body(foodCategoryEntity);

@@ -19,6 +19,11 @@ public class FoodCategoryOperationsServiceImpl implements FoodCategoryOperations
     }
 
     @Override
+    public List<FoodCategoryEntity> saveAllCategories(List<FoodCategoryEntity> foodCategoryEntities) {
+        return foodCategoryOperationsDao.saveAllCategories(foodCategoryEntities);
+    }
+
+    @Override
     public List<FoodCategoryEntity> fetchAllCategories() {
         return foodCategoryOperationsDao.fetchAllCategories();
     }

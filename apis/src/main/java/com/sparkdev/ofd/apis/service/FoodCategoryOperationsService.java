@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface FoodCategoryOperationsService {
     FoodCategoryEntity saveCategory(FoodCategoryEntity foodCategoryEntity);
+    List<FoodCategoryEntity> saveAllCategories(List<FoodCategoryEntity> foodCategoryEntities);
     List<FoodCategoryEntity> fetchAllCategories();
 }
